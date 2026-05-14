@@ -358,17 +358,22 @@ printf '  %s1.%s Sign in to GitHub:\n' "$BOLD" "$RESET"
 printf '       %sgh auth login%s\n' "$CYAN" "$RESET"
 printf '       %s(Choose: GitHub.com → HTTPS → Login with a web browser)%s\n\n' "$DIM" "$RESET"
 
-printf '  %s2.%s Clone the Omne repo:\n' "$BOLD" "$RESET"
+printf '  %s2.%s Sign up for Vercel (for deploying prototypes):\n' "$BOLD" "$RESET"
+printf '       %sopen https://vercel.com/signup%s\n' "$CYAN" "$RESET"
+printf '       %s(Use "Continue with GitHub" — same account as step 1.)%s\n' "$DIM" "$RESET"
+printf '       %sThen link the CLI: %svercel login%s\n\n' "$DIM" "$CYAN" "$RESET"
+
+printf '  %s3.%s Clone the Omne repo:\n' "$BOLD" "$RESET"
 printf '       %smkdir -p ~/repos/omne && cd ~/repos/omne%s\n' "$CYAN" "$RESET"
 printf '       %sgh repo clone omnesoft/omne-frontend%s\n' "$CYAN" "$RESET"
 printf '       %scd omne-frontend && pnpm install%s\n\n' "$CYAN" "$RESET"
 
-printf '  %s3.%s Start your designer session (from anywhere):\n' "$BOLD" "$RESET"
+printf '  %s4.%s Start your designer session (from anywhere):\n' "$BOLD" "$RESET"
 printf '       %sdesignstart "Sam working on the inventory module"%s\n' "$CYAN" "$RESET"
 printf '       %s(Replace with your name + the feature you want to design.)%s\n' "$DIM" "$RESET"
 printf '       %sFirst time: a browser opens for Claude sign-in. Use your work email.%s\n\n' "$DIM" "$RESET"
 
-printf '  %s4.%s Open the repo in Cursor (optional, for browsing files):\n' "$BOLD" "$RESET"
+printf '  %s5.%s Open the repo in Cursor (optional, for browsing files):\n' "$BOLD" "$RESET"
 printf '       %sopen -a Cursor ~/repos/omne/omne-frontend%s\n' "$CYAN" "$RESET"
 printf '       %sFirst-time Cursor setup: skip the AI features — Claude Code does that part.%s\n\n' "$DIM" "$RESET"
 

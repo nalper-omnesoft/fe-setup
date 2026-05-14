@@ -30,7 +30,7 @@ When the script is done you'll see a green `━━━ Tooling ready. ━━━` 
 
 From now on, use Warp instead of the built-in Terminal.
 
-## 4. Sign in to GitHub and clone the repo
+## 4. Sign in to GitHub
 
 In Warp, sign in to GitHub:
 
@@ -40,7 +40,21 @@ gh auth login
 
 Choose: **GitHub.com → HTTPS → Login with a web browser**.
 
-Then clone the frontend repo:
+## 5. Sign up for Vercel
+
+You'll need a Vercel account to deploy prototypes. From Warp:
+
+```bash
+open https://vercel.com/signup
+```
+
+Use **Continue with GitHub** so it's the same account as step 4. Then link the CLI to that account:
+
+```bash
+vercel login
+```
+
+## 6. Clone the repo
 
 ```bash
 mkdir -p ~/repos/omne && cd ~/repos/omne
@@ -48,7 +62,7 @@ gh repo clone omnesoft/omne-frontend
 cd omne-frontend && pnpm install
 ```
 
-## 5. Start your designer session
+## 7. Start your designer session
 
 From anywhere in Warp:
 
