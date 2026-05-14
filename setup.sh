@@ -331,8 +331,8 @@ printf '  • Cursor (in /Applications)\n\n'
 printf '%sWhat to do next:%s\n\n' "$BOLD" "$RESET"
 
 printf '  %s!%s %sOpen a new Terminal window first%s — your current shell predates the\n' "$YELLOW" "$RESET" "$BOLD" "$RESET"
-printf '       new PATH entries and aliases (claudeyolo, bup), so none of the\n'
-printf '       commands below will work until you do.\n\n'
+printf '       new PATH entries and aliases (claudeyolo, bup, designstart), so none\n'
+printf '       of the commands below will work until you do.\n\n'
 
 printf '  %s1.%s Sign in to GitHub:\n' "$BOLD" "$RESET"
 printf '       %sgh auth login%s\n' "$CYAN" "$RESET"
@@ -341,12 +341,12 @@ printf '       %s(Choose: GitHub.com → HTTPS → Login with a web browser)%s\n
 printf '  %s2.%s Clone the Omne repo:\n' "$BOLD" "$RESET"
 printf '       %smkdir -p ~/repos/omne && cd ~/repos/omne%s\n' "$CYAN" "$RESET"
 printf '       %sgh repo clone omnesoft/omne-frontend%s\n' "$CYAN" "$RESET"
-printf '       %scd omne-frontend && pnpm install%s\n' "$CYAN" "$RESET"
+printf '       %scd omne-frontend && pnpm install%s\n\n' "$CYAN" "$RESET"
 
-
-printf '  %s3.%s Start Claude Code from inside the repo:\n' "$BOLD" "$RESET"
-printf '       %sclaude%s\n' "$CYAN" "$RESET"
-printf '       %sFirst time: a browser opens for sign-in. Use your work email.%s\n\n' "$DIM" "$RESET"
+printf '  %s3.%s Start your designer session (from anywhere):\n' "$BOLD" "$RESET"
+printf '       %sdesignstart "Sam working on the inventory module"%s\n' "$CYAN" "$RESET"
+printf '       %s(Replace with your name + the feature you want to design.)%s\n' "$DIM" "$RESET"
+printf '       %sFirst time: a browser opens for Claude sign-in. Use your work email.%s\n\n' "$DIM" "$RESET"
 
 printf '  %s4.%s Open the repo in Cursor (optional, for browsing files):\n' "$BOLD" "$RESET"
 printf '       %sopen -a Cursor ~/repos/omne/omne-frontend%s\n' "$CYAN" "$RESET"

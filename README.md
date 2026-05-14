@@ -30,17 +30,37 @@ When the script is done you'll see a green `━━━ Tooling ready. ━━━` 
 
 From now on, use Warp instead of the built-in Terminal.
 
-## 4. Follow the on-screen next steps
+## 4. Sign in to GitHub and clone the repo
 
-The script printed a "What to do next" block — sign in to GitHub with `gh auth login`, clone the Omne repo, and start Claude. Run those commands in Warp.
+In Warp, sign in to GitHub:
 
-If you're a designer, the script also added a `designstart` shortcut. From Warp, try:
+```bash
+gh auth login
+```
+
+Choose: **GitHub.com → HTTPS → Login with a web browser**.
+
+Then clone the frontend repo:
+
+```bash
+mkdir -p ~/repos/omne && cd ~/repos/omne
+gh repo clone omnesoft/omne-frontend
+cd omne-frontend && pnpm install
+```
+
+## 5. Start your designer session
+
+From anywhere in Warp:
 
 ```bash
 designstart "Sam working on the inventory module"
 ```
 
-This `cd`s into the frontend repo and launches Claude Code in designer mode automatically.
+Replace `Sam working on the inventory module` with your name and the feature you want to design.
+
+This `cd`s into the frontend repo and launches Claude Code with the designer onboarding prompt. Claude will cut you a `prototype/` branch, enable the dev auth bypass, and start the dev server — you're ready to design.
+
+First time only: a browser opens for Claude sign-in. Use your work email.
 
 ---
 
