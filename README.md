@@ -22,11 +22,11 @@ If a dialog pops up asking to install **Xcode Command Line Tools**, click `Insta
 bash ~/Downloads/fe-setup.sh
 ```
 
-## 3. Open Warp
+## 3. After it finishes, open Warp
 
-When the script finishes, **quit Terminal** (`Cmd + Q`) and open Warp instead — it's a modern terminal that's friendlier for what comes next.
+When the script is done you'll see a green `━━━ Tooling ready. ━━━` message at the bottom of Terminal. That's your cue.
 
-Press `Cmd + Space`, type `Warp`, press `Return`. Sign in with your work email on first launch.
+**Quit Terminal** (`Cmd + Q`), then open Warp — it's a modern terminal that's friendlier for what comes next. Press `Cmd + Space`, type `Warp`, press `Return`. Sign in with your work email on first launch.
 
 From now on, use Warp instead of the built-in Terminal.
 
