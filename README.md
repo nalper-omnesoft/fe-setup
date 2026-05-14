@@ -73,12 +73,13 @@ In order:
 3. **CLI tools via Homebrew** — `node`, `pnpm`, `git`, `gh` (GitHub CLI).
 4. **GUI apps via Homebrew Cask** — Cursor, Fork, Ghostty, Warp (all installed into `/Applications`).
 5. **Claude Code** — installed globally via `npm` (the `claude` command).
-6. **Shell helpers added to `~/.zshrc`**:
+6. **Vercel CLI** — installed globally via `npm` (the `vercel` command).
+7. **Shell helpers added to `~/.zshrc`**:
    - `claudeyolo` — shortcut for `claude --dangerously-skip-permissions`.
    - `bup` — update Homebrew, all packages, and Claude Code in one go.
    - `designstart "<your name> working on <feature>"` — `cd` into the frontend repo and launch Claude with the right onboarding prompt.
    - `HOMEBREW_CASK_OPTS="--no-quarantine"` — skips Gatekeeper's "are you sure?" prompt for cask installs.
-7. **Verifies** every tool resolves on PATH.
+8. **Verifies** every tool resolves on PATH.
 
 Safe to re-run — every step skips work that's already done.
 

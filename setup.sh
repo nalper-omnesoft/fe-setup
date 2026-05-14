@@ -235,6 +235,25 @@ else
   fi
 fi
 
+# ---- step 5b: Vercel CLI -----------------------------------------------------
+step "Vercel CLI"
+
+if command -v vercel >/dev/null 2>&1; then
+  ok "already installed ($(vercel --version 2>/dev/null | head -n1 || echo 'version unknown'))"
+else
+  if [[ $CHECK_ONLY -eq 1 ]]; then
+    fail "not installed"
+  else
+    printf '  %s…%s installing via npm\n' "$DIM" "$RESET"
+    if run_and_log npm install -g vercel; then
+      ok "Vercel CLI installed"
+    else
+      fail "Vercel install failed. See log for details."
+      exit 1
+    fi
+  fi
+fi
+
 # ---- step 6: shell helpers --------------------------------------------------
 step "Shell helpers in ~/.zshrc"
 
@@ -296,7 +315,7 @@ fi
 step "Verifying everything works"
 
 verify_ok=1
-for cmd in brew node pnpm git gh claude; do
+for cmd in brew node pnpm git gh claude vercel; do
   if command -v "$cmd" >/dev/null 2>&1; then
     ok "$cmd: $(command -v "$cmd")"
   else
@@ -326,7 +345,8 @@ printf '  • Xcode Command Line Tools\n'
 printf '  • Homebrew\n'
 printf '  • Node.js, pnpm, git, GitHub CLI\n'
 printf '  • Claude Code (the %sclaude%s command)\n' "$CYAN" "$RESET"
-printf '  • Cursor (in /Applications)\n\n'
+printf '  • Vercel CLI (the %svercel%s command)\n' "$CYAN" "$RESET"
+printf '  • Cursor, Fork, Ghostty, Warp (in /Applications)\n\n'
 
 printf '%sWhat to do next:%s\n\n' "$BOLD" "$RESET"
 
