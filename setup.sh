@@ -173,12 +173,14 @@ done
 
 # ---- step 4: casks ----------------------------------------------------------
 
-step "Cursor (the editor) and Fork git helper"
+step "GUI apps: Cursor, Fork, Ghostty, Warp"
 
 # Format: cask|app_path|shell_command (empty when the app has no command-palette
 # "Install … command in PATH" entry, e.g. Fork).
 CASKS=(
   "fork|/Applications/Fork.app|"
+  "ghostty|/Applications/Ghostty.app|"
+  "warp|/Applications/Warp.app|"
   "cursor|/Applications/Cursor.app|cursor"
 )
 
@@ -265,6 +267,30 @@ for entry in "${ZSHRC_ENTRIES[@]}"; do
     fi
   fi
 done
+
+# designstart() is a multi-line shell function, so it can't ride in the array above.
+if grep -qE '^designstart\s*\(\s*\)' "$HOME/.zshrc" 2>/dev/null; then
+  skip "designstart() already in ~/.zshrc"
+else
+  if [[ $CHECK_ONLY -eq 1 ]]; then
+    fail "designstart() not in ~/.zshrc"
+  else
+    if [[ $zshrc_header_added -eq 0 ]]; then
+      {
+        echo ""
+        echo "# Claude Code helpers (added by Claude Code designer setup)"
+      } >> "$HOME/.zshrc"
+      zshrc_header_added=1
+    fi
+    cat >> "$HOME/.zshrc" <<'EOF'
+designstart() {
+  cd ~/repos/omne/omne-frontend || return 1
+  claude --dangerously-skip-permissions "I'm a designer, $*"
+}
+EOF
+    ok "added designstart() to ~/.zshrc"
+  fi
+fi
 
 # ---- step 7: verify ---------------------------------------------------------
 step "Verifying everything works"

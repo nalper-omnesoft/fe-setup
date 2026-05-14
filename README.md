@@ -1,44 +1,75 @@
 # fe-setup
 
-One-shot installer that gets a Mac ready for working on the Omne frontend with Claude Code. Aimed at designers, but anyone on macOS can use it.
+One-shot installer that gets a Mac ready to work on the Omne frontend with Claude Code. Aimed at designers, but anyone on macOS can use it.
 
-## Install
+## 1. Open Terminal
 
-Open Terminal and run:
+Press `Cmd + Space` to open Spotlight. Type `Terminal` and press `Return`. A window with a prompt appears — that's where you'll paste the command in the next step.
+
+## 2. Run the install command
+
+Paste this into Terminal and press `Return`:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/nalper-omnesoft/fe-setup/main/setup.sh -o ~/Downloads/fe-setup.sh && bash ~/Downloads/fe-setup.sh
 ```
 
-If the script triggers the Xcode Command Line Tools installer, finish that dialog and then re-run:
+You'll see colored `✓` marks as each step completes. The whole thing takes ~5–10 minutes.
+
+If a dialog pops up asking to install **Xcode Command Line Tools**, click `Install`, wait for it to finish, then re-run the same command in the Terminal window:
 
 ```bash
 bash ~/Downloads/fe-setup.sh
 ```
 
-## Dry run
+## 3. Open Warp
 
-To see what's installed and what's missing without changing anything:
+When the script finishes, **quit Terminal** (`Cmd + Q`) and open Warp instead — it's a modern terminal that's friendlier for what comes next.
+
+Press `Cmd + Space`, type `Warp`, press `Return`. Sign in with your work email on first launch.
+
+From now on, use Warp instead of the built-in Terminal.
+
+## 4. Follow the on-screen next steps
+
+The script printed a "What to do next" block — sign in to GitHub with `gh auth login`, clone the Omne repo, and start Claude. Run those commands in Warp.
+
+If you're a designer, the script also added a `designstart` shortcut. From Warp, try:
+
+```bash
+designstart "Sam working on the inventory module"
+```
+
+This `cd`s into the frontend repo and launches Claude Code in designer mode automatically.
+
+---
+
+## What the script does
+
+In order:
+
+1. **Xcode Command Line Tools** — Apple's compilers, needed by Homebrew. If missing, triggers Apple's installer and asks you to re-run.
+2. **Homebrew** — package manager for macOS. Installed and added to `~/.zprofile` so future shells find it.
+3. **CLI tools via Homebrew** — `node`, `pnpm`, `git`, `gh` (GitHub CLI).
+4. **GUI apps via Homebrew Cask** — Cursor, Fork, Ghostty, Warp (all installed into `/Applications`).
+5. **Claude Code** — installed globally via `npm` (the `claude` command).
+6. **Shell helpers added to `~/.zshrc`**:
+   - `claudeyolo` — shortcut for `claude --dangerously-skip-permissions`.
+   - `bup` — update Homebrew, all packages, and Claude Code in one go.
+   - `designstart "<your name> working on <feature>"` — `cd` into the frontend repo and launch Claude with the right onboarding prompt.
+   - `HOMEBREW_CASK_OPTS="--no-quarantine"` — skips Gatekeeper's "are you sure?" prompt for cask installs.
+7. **Verifies** every tool resolves on PATH.
+
+Safe to re-run — every step skips work that's already done.
+
+## Check without changing anything
+
+To report what's installed and what's missing without making changes:
 
 ```bash
 bash ~/Downloads/fe-setup.sh --check
 ```
 
-## What it installs
-
-- Xcode Command Line Tools
-- Homebrew (added to `~/.zprofile` so future Terminal sessions find it)
-- Node.js, pnpm, git, GitHub CLI
-- Claude Code (the `claude` command)
-- Cursor and Fork (in `/Applications`)
-- Shell helpers in `~/.zshrc`: `claudeyolo`, `bup`, `HOMEBREW_CASK_OPTS`
-
-The script is safe to re-run — every step skips work that's already done.
-
-## After it finishes
-
-Open a **new** Terminal window (so the new PATH and aliases load), then follow the on-screen "What to do next" steps to sign in to GitHub, clone the repo, and start Claude Code.
-
 ## Troubleshooting
 
-The script writes a full log to `/tmp/omne-designer-setup.log`. If something fails, paste the log in `#design-systems-eng` on Slack.
+The script writes a full log to `/tmp/omne-designer-setup.log`. If something fails, paste the log into `#design-systems-eng` on Slack.
