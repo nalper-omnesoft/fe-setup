@@ -85,7 +85,7 @@ In order:
 1. **Xcode Command Line Tools** — Apple's compilers, needed by Homebrew. If missing, triggers Apple's installer and asks you to re-run.
 2. **Homebrew** — package manager for macOS. Installed and added to `~/.zprofile` so future shells find it.
 3. **CLI tools via Homebrew** — `node`, `pnpm`, `git`, `gh` (GitHub CLI).
-4. **GUI apps via Homebrew Cask** — Cursor, Fork, Ghostty, Warp (all installed into `/Applications`).
+4. **GUI apps via Homebrew Cask** — Cursor, Fork, Ghostty, Warp, Docker Desktop (all installed into `/Applications`).
 5. **Claude Code** — installed globally via `npm` (the `claude` command).
 6. **Vercel CLI** — installed globally via `npm` (the `vercel` command).
 7. **Shell helpers added to `~/.zshrc`**:

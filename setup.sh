@@ -173,7 +173,7 @@ done
 
 # ---- step 4: casks ----------------------------------------------------------
 
-step "GUI apps: Cursor, Fork, Ghostty, Warp"
+step "GUI apps: Cursor, Fork, Ghostty, Warp, Docker"
 
 # Format: cask|app_path|shell_command (empty when the app has no command-palette
 # "Install … command in PATH" entry, e.g. Fork).
@@ -181,6 +181,7 @@ CASKS=(
   "fork|/Applications/Fork.app|"
   "ghostty|/Applications/Ghostty.app|"
   "warp|/Applications/Warp.app|"
+  "docker|/Applications/Docker.app|"
   "cursor|/Applications/Cursor.app|cursor"
 )
 
@@ -346,7 +347,7 @@ printf '  • Homebrew\n'
 printf '  • Node.js, pnpm, git, GitHub CLI\n'
 printf '  • Claude Code (the %sclaude%s command)\n' "$CYAN" "$RESET"
 printf '  • Vercel CLI (the %svercel%s command)\n' "$CYAN" "$RESET"
-printf '  • Cursor, Fork, Ghostty, Warp (in /Applications)\n\n'
+printf '  • Cursor, Fork, Ghostty, Warp, Docker Desktop (in /Applications)\n\n'
 
 printf '%sWhat to do next:%s\n\n' "$BOLD" "$RESET"
 
